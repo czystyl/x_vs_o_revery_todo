@@ -1,0 +1,51 @@
+{
+  "name": "tic-tac-toe-game",
+  "version": "0.1.0",
+  "description": "Tic Tac Toe Game",
+  "license": "MIT",
+  "esy": {
+    "build": "refmterr dune build -p App",
+    "buildsInSource": "_build",
+    "install": [
+      "esy-installer App.install"
+    ]
+  },
+  "revery-packager": {
+    "bundleName": "TicTacToeGame",
+    "bundleId": "com.tic-tac-toe.app",
+    "displayName": "Tic Tac Toe Game",
+    "mainExecutable": "App",
+    "windows": {
+      "packages": ["zip"],
+      "iconFile": "assets/icon.ico"
+    },
+    "darwin": {
+      "packages": ["tar", "dmg"],
+      "iconFile": "icon.png"
+    },
+    "linux": {
+      "packages": ["tar", "appimage"]
+    }
+  },
+  "dependencies": {
+    "ocaml": "~4.7.0",
+    "revery": "0.29.0"
+  },
+  "resolutions": {
+    "@opam/cmdliner": "1.0.2",
+    "pesy": "0.4.1",
+    "rebez": "github:jchavarri/rebez#46cbc183",
+    "@opam/merlin-extend": "0.4"
+  },
+  "scripts": {
+   "format": "bash -c \"refmt --in-place *.re\"",
+   "run": "esy x App"
+
+  },
+  "devDependencies": {
+    "ocaml": "~4.7.0",
+    "@opam/dune": "*",
+    "@opam/merlin": "*",
+    "esy-macdylibbundler": "*"
+  }
+}
